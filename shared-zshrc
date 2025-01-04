@@ -1,0 +1,17 @@
+# source this into your ~/.zshrc
+# Uncomment or add if you have other plugins
+# plugins=(tmux)
+
+source $ZSH/oh-my-zsh.sh
+
+export LANG=en_US.UTF-8
+
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+eval "$(~/.rbenv/bin/rbenv init - zsh)"
+
+alias vim="nvim"
+export EDITOR="nvim"
+alias tml='tm `ls ~/.tmuxinator | fzf --height=30% --reverse --info=inline | sed "s/\.[^.]*$//"`'
+alias tm=tmuxinator
