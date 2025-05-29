@@ -69,3 +69,7 @@ vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
 
+-- next and prev error
+vim.keymap.set("n", "g[", vim.diagnostic.goto_next);
+vim.keymap.set("n", "g]", vim.diagnostic.goto_prev);
+
