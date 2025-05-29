@@ -66,6 +66,11 @@ local local_plugins = {
             --})
         end
     },
+    {
+        "davidmh/mdx.nvim",
+        config = true,
+        dependencies = {"nvim-treesitter/nvim-treesitter"}
+    }
 }
 
 return local_plugins
