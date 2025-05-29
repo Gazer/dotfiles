@@ -47,35 +47,23 @@ local local_plugins = {
         end,
     },
     {
-        "vim-apm", dir = "~/personal/vim-apm",
-        config = function()
-            --[[
-            local apm = require("vim-apm")
-
-            apm:setup({})
-            vim.keymap.set("n", "<leader>apm", function() apm:toggle_monitor() end)
-            --]]
-        end
-    },
-    {
-        "vim-with-me", dir = "~/personal/vim-with-me",
-        config = function() end
-    },
-    {
      'stevearc/conform.nvim',
         lazy = false,
         config = function()
             require("conform").setup({
                 formatters_by_ft = {
-                    dart = { "dart_format" }
-                }
+                    dart = { "dart_format" },
+                    javascript = { "prettierd", "prettier", stop_after_first = true },
+                },
+                stop_after_first = true,
+                format_after_save = true,
             })
-            vim.api.nvim_create_autocmd("BufWritePre", {
-                pattern = "*.dart",
-                callback = function(args)
-                    require("conform").format({ bufnr = args.buf })
-                end,
-            })
+            --vim.api.nvim_create_autocmd("BufWritePre", {
+            --    pattern = "*.dart",
+            --    callback = function(args)
+            --        require("conform").format({ bufnr = args.buf })
+            --    end,
+            --})
         end
     },
 }
